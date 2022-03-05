@@ -14,13 +14,42 @@
         div {
             top: 50%;
             left: 50%;
-            width: 700px;
+            width: 780px;
             height: auto;
-            position: fixed;
+            position: absolute;
             transform: translateX(-50%)translateY(-50%);
         }
         h1 {
             border-bottom: 1px solid #333;
+        }
+        button {
+            width: 50px;
+            height: 60px;
+            margin: 5px;
+            animation: card 0.2s;
+            font-size: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        p#msg br {
+            display: none;
+        }
+        p#msg {
+            padding: 4px;
+            border: 1px solid black;
+        }
+        @keyframes card {
+            0% {
+                opacity: 0;
+                transform: scale3d(0,0,0);
+            }
+            80% {
+                transform: scale3d(1.1,1.1,1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale3d(1,1,1);
+            }
         }
     </style>
 </head>
@@ -29,7 +58,13 @@
         <h1>真剣衰弱</h1>
         <p>JavaScriptの腕試し</p>
 
-        <button onclick="startGame()">始める</button>
+        <p><input id="start_btn" type="button" onclick="startGame()" value="始める"></p>
+
+        <p id="game">
+
+        </p>
+
+        <p id="msg"></p>
     </div>
 </body>
 </html>
