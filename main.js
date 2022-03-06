@@ -88,9 +88,9 @@ function onGame() {
         card.value = trump[rand];
 
         // もしハートかダイヤだったら文字を赤くする
-        if(trump[rand].includes("♥") || trump[rand].includes("♦")) {
-            card.style.color = "red";
-        }
+        // if(trump[rand].includes("♥") || trump[rand].includes("♦")) {
+        //     card.style.color = "red";
+        // }
         gameWindow.appendChild(card);
         document.getElementById('msg').innerHTML = "カードをシャッフルし、並べています…";
     }
@@ -104,6 +104,17 @@ var check_card1, check_card2;
 function cardOpening() {
     
     if(!card_1) {
+        
+        const e = document.getElementsByTagName('button');
+        for(cnt = 0; cnt < e.length; cnt++) {
+            e[cnt].style.color = "transparent";
+        }
+
+        this.style.color = "black";
+        if(this.value.includes('♥') || this.value.includes('♦')) {
+            this.style.color = "red";
+        }
+        
         card_1 = this.value;
         check_card1 = this.value.substr(5);
 
@@ -125,6 +136,10 @@ function cardOpening() {
         return;
     }
     else if(!card_2) {
+        this.style.color = "black";
+        if(this.value.includes('♥') || this.value.includes('♦')) {
+            this.style.color = "red";
+        }
         card_2 = this.value;
         check_card2 = this.value.substr(5);
 
